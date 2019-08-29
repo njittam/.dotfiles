@@ -1,8 +1,30 @@
-#fonts
-#clone
-git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 external/fonts
-fonts/install.sh
-# clean-up a bit
-rm -rf external/fonts
+#!/bin/zsh
 
-curl -L git.io/antigen > external/antigen.zsh
+mkdir -p ~/.dfexternal/zsh
+
+chsh -s $(which zsh)
+cd ~/.dotfiles
+
+#antigen
+curl -L git.io/antigen > ~/.dfexternal/zsh/antigen.sh
+
+
+#Vim
+#plugged
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+#nVim
+#plugged
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+#tmuxinator
+gem install tmuxinator
+
+python3 install.py
+
+vim +PlugInstall +qall
+nvim +PlugInstall +qall
