@@ -1,10 +1,10 @@
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 export TERM="xterm-256color"
 
 alias e="exa --group-directories-first --long --colour auto --all --header --modified --group --git"
 
 source ~/.dfexternal/zsh/antigen.sh
 
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 antigen use oh-my-zsh
 
