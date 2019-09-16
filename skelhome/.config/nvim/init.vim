@@ -14,10 +14,22 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neco-vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'dense-analysis/ale'
+"Latex
+Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 set number relativenumber
@@ -27,3 +39,20 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 let g:airline_the='dracula'
+let g:deplete#enable_at_startup = 1
+
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_fixers = {
+\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'javascript': ['eslint'],
+\}
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips']
+
+
+
+
+source ~/.config/nvim/tex.vim
+

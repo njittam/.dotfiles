@@ -1,13 +1,14 @@
-exec xrandr --output DVI-0 --auto --right-of DVI-1
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # audio buttons
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 1- unmute"
+bindsym XF86AudioMute exec "amixer -D pulse Master toggle"
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlayPause exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -112,8 +113,8 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 
 # split orientation
 bindsym $mod+Alt+h --release split h;exec notify-send 'tile horizontally'
-bindsym $mod+Alt+v split v;exec notify-send 'tile vertically'
-bindsym $mod+Alt+q split toggle
+bindsym $mod+Alt+v --release split v;exec notify-send 'tile vertically'
+bindsym $mod+Alt+q --release split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
