@@ -1,20 +1,19 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # audio buttons
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 1- unmute"
-bindsym XF86AudioMute exec "amixer -D pulse Master toggle"
+#bindsym XF86AudioRaiseVolume exec "amixer -D pulse set Master 1+ unmute"
+#bindsym XF86AudioLowerVolume exec "amixer -D pulse set Master 1- unmute"
+#bindsym XF86AudioMute exec "amixer -D pulse Master toggle"
 # Media player controls
-bindsym XF86AudioPlayPause exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
+#bindsym XF86AudioPlayPause exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioStop exec playerctl stop
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-
+bindsym XF86Launch1 exec /usr/bin/krunner
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -38,7 +37,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec /usr/bin/konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -47,7 +46,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id dmenu_recency
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+bindsym $mod+z exec --no-startup-id krunner
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
