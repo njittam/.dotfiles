@@ -1,6 +1,5 @@
 export TERM="xterm-256color"
 
-alias e="exa --group-directories-first --long --colour auto --all --header --modified --group --git"
 
 source ~/.dfexternal/zsh/antigen.sh
 
@@ -26,3 +25,6 @@ antigen apply
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
+
+alias e="exa --group-directories-first --long --colour auto --all --header --modified --group --git"
+alias ide=nvim\ +NERDTREE\ +TagBarOpen
