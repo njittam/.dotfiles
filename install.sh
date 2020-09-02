@@ -28,3 +28,11 @@ python3 install.py
 
 vim +PlugInstall +qall
 nvim +PlugInstall +qall
+
+# Code
+~/.dotfiles/install_code.sh
+
+
+#Manjaro
+lsb_release -i
+~/.dotfiles/install_manjaro_programs.sh 
